@@ -5,11 +5,11 @@
 - `clang.wasm`: clang compiler, compiled to wasm w/ WASI
 - `lld.wasm`: lld linker, compiled to wasm w/ WASI
 - `memfs.wasm`: wasm w/ WASI implementation of in-memory filesystem,
-- `index.html`
-- `index.css`
-- `index.js`
-- `service_worker.js`: Service worker used by all web pages
-- `worker.js`: Dedicated work used to compile/run
+- `index.html`: the web page
+- `index.css`: css file for the web page
+- `index.js`: javascript file for the web page
+- `service_worker.js`: Service worker used by the web page
+- `worker.js`: Dedicated work used to compile
 - `sysroot.tar`: C++ standard headers and libraries
 
 
