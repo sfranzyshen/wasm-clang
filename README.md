@@ -8,6 +8,7 @@
 - `index.html`: the web page
 - `index.css`: css file for the web page
 - `index.js`: javascript file for the web page
+- `shared.js`: shared utilities for all tools
 - `service_worker.js`: Service worker used by the web page
 - `worker.js`: Dedicated work used to compile
 - `sysroot.tar`: C++ standard headers and libraries
