@@ -657,8 +657,9 @@ class API {
     this.readBuffer = options.readBuffer;
     this.compileStreaming = options.compileStreaming;
     this.hostWrite = options.hostWrite;
-    this.clangFilename = options.clang || 'clang';
-    this.lldFilename = options.lld || 'lld';
+    this.clangFilename = options.clang || 'clang.wasm';
+    this.memfsFilename = options.memfsFilename || 'memfs.wasm';
+    this.lldFilename = options.lld || 'lld.wasm';
     this.sysrootFilename = options.sysroot || 'sysroot.tar';
     this.showTiming = options.showTiming || false;
 
@@ -731,37 +732,6 @@ class API {
     return await this.run(clang, 'clang', '-cc1', '-emit-obj',
                           ...this.clangCommonArgs, '-O2', '-o', obj, '-x',
                           'c++', input);
-  }
-
-  async compileToAssembly(options) {
-    const input = options.input;
-    const output = options.output;
-    const contents = options.contents;
-    const obj = options.obj;
-    const triple = options.triple || 'x86_64';
-    const opt = options.opt || '2';
-
-    await this.ready;
-    this.memfs.addFile(input, contents);
-    const clang = await this.getModule(this.clangFilename);
-    await this.run(clang, 'clang', '-cc1', '-S', ...this.clangCommonArgs,
-                          `-triple=${triple}`, '-mllvm',
-                          '--x86-asm-syntax=intel', `-O${opt}`,
-                          '-o', output, '-x', 'c++', input);
-    return this.memfs.getFileContents(output);
-  }
-
-  async compileTo6502(options) {
-    const input = options.input;
-    const output = options.output;
-    const contents = options.contents;
-    const flags = options.flags;
-
-    await this.ready;
-    this.memfs.addFile(input, contents);
-    const vasm = await this.getModule('vasm6502_oldstyle');
-    await this.run(vasm, 'vasm6502_oldstyle', ...flags, '-o', output, input);
-    return this.memfs.getFileContents(output);
   }
 
   async link(obj, wasm) {
