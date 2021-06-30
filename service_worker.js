@@ -26,16 +26,11 @@ self.addEventListener('install', event => {
         `${cdn}/xterm/3.14.5/xterm.min.css`,
         `${cdn}/xterm/3.14.5/xterm.min.js`,
         './',
-        './6502.html',
-        './6502.js',
-        './asm.html',
-        './asm.js',
         './index.html',
-        './main.css',
+        './index.css',
         './memfs',
         './shared.js',
-        './shared_web.js',
-        './web.js',
+        './index.js',
         './worker.js',
       ]);
     })

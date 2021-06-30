@@ -55,32 +55,6 @@ const onAnyMessage = async event => {
     api.showTiming = event.data.data;
     break;
 
-  case 'compileToAssembly': {
-    const responseId = event.data.responseId;
-    let output = null;
-    let transferList;
-    try {
-      output = await api.compileToAssembly(event.data.data);
-    } finally {
-      port.postMessage({id : 'runAsync', responseId, data : output},
-                       transferList);
-    }
-    break;
-  }
-
-  case 'compileTo6502': {
-    const responseId = event.data.responseId;
-    let output = null;
-    let transferList;
-    try {
-      output = await api.compileTo6502(event.data.data);
-    } finally {
-      port.postMessage({id : 'runAsync', responseId, data : output},
-                       transferList);
-    }
-    break;
-  }
-
   case 'compileLinkRun':
     if (currentApp) {
       console.log('First, disallowing rAF from previous app.');
