@@ -308,14 +308,6 @@ class WorkerAPI {
     return await responsePromise;
   }
 
-  async compileToAssembly(options) {
-    return this.runAsync('compileToAssembly', options);
-  }
-
-  async compileTo6502(options) {
-    return this.runAsync('compileTo6502', options);
-  }
-
   compileLinkRun(contents) {
     this.port.postMessage({id: 'compileLinkRun', data: contents});
   }
@@ -366,20 +358,18 @@ function initLayout() {
       showPopoutIcon: false,
     },
     content: [{
-      type: 'row',
+      type: 'column',
       content: [{
         type: 'component',
         componentName: 'editor',
         componentState: {fontSize: 18, value: initialProgram},
+		height: 300,
       }, {
-        type: 'stack',
+        type: 'column',
         content: [{
           type: 'component',
           componentName: 'terminal',
           componentState: {fontSize: 18},
-        }, {
-          type: 'component',
-          componentName: 'canvas',
         }]
       }]
     }]
