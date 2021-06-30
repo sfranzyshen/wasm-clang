@@ -1,4 +1,4 @@
-# Running Clang/LLD in the browser producing a wasm file and upload to a esp device running a wasm3 VM
+# Running Clang/LLD in the browser producing a wasm file and uploading it to a esp device running a Wasm3 VM
 
 # Directory structure
 
