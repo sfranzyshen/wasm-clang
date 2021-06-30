@@ -705,7 +705,7 @@ class API {
 
   async getModule(name) {
     if (this.moduleCache[name]) return this.moduleCache[name];
-    const module = await this.hostLogAsync(`Fetching and compiling ${name}`,
+    const module = await this.hostLogAsync(`Fetching ${name}`,
                                            this.compileStreaming(name));
     this.moduleCache[name] = module;
     return module;
