@@ -12,4 +12,4 @@
 - `worker.js`: Dedicated work used to compile
 - `sysroot.tar`: C++ standard headers and libraries
 
-
+this is a modification of Ben Smith's [wasm-clang demonstration](https://github.com/binji/wasm-clang) to be used with wasm3 and the esp platform.
