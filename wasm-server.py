@@ -7,7 +7,7 @@ from http.server import SimpleHTTPRequestHandler
 class WasmHandler(SimpleHTTPRequestHandler):
     def end_headers(self):        
         # Include additional response headers here. CORS for example:
-        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('access-control-allow-origin', '*')
         SimpleHTTPRequestHandler.end_headers(self)
 
 

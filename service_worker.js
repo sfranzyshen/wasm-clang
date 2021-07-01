@@ -59,7 +59,7 @@ self.addEventListener('fetch', function(event) {
           return response;
         }
         console.log(`got uncached ${event.request.url}`);
-        return fetch(event.request, { mode: 'no-cors' }).then(function(response) {
+        return fetch(event.request).then(function(response) {
           // Check if we received a valid response
           if (!response || response.status !== 200 ||
               response.type !== 'basic') {
