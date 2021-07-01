@@ -1,4 +1,4 @@
-this is a modification of Ben Smith's [wasm-clang demonstration](https://github.com/binji/wasm-clang) to be used with wasm3 and the esp platform.
+this is a modification of Ben Smith's [wasm-clang demonstration](https://github.com/binji/wasm-clang) to be used with wasm3 on the esp platform.
 
 ## Running Clang/LLD in the browser producing a wasm file and uploading it to a esp device running a Wasm3 VM
 
