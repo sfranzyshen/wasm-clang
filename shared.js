@@ -658,7 +658,7 @@ class API {
     this.readBuffer = options.readBuffer;
     this.compileStreaming = options.compileStreaming;
     this.hostWrite = options.hostWrite;
-    this.clangFilename = options.clang || 'clang.wasm';
+    this.clangFilename = options.clang || 'http://www.sfranzyshen.org/wasm-clang/clang.wasm';
     this.lldFilename = options.lld || 'lld.wasm';
     this.sysrootFilename = options.sysroot || 'sysroot.tar';
     this.showTiming = options.showTiming || false;
