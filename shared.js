@@ -652,13 +652,13 @@ class Tar {
 }
 
 class API {
+// 'https://raw.githubusercontent.com/sfranzyshen/wasm-clang/wasm3_esp_test/clang.wasm';
   constructor(options) {
     this.moduleCache = {};
     this.readBuffer = options.readBuffer;
     this.compileStreaming = options.compileStreaming;
     this.hostWrite = options.hostWrite;
     this.clangFilename = options.clang || 'clang.wasm';
-    this.memfsFilename = options.memfsFilename || 'memfs.wasm';
     this.lldFilename = options.lld || 'lld.wasm';
     this.sysrootFilename = options.sysroot || 'sysroot.tar';
     this.showTiming = options.showTiming || false;
@@ -677,7 +677,7 @@ class API {
     this.memfs = new MemFS({
       compileStreaming : this.compileStreaming,
       hostWrite : this.hostWrite,
-      memfsFilename : options.memfs || 'memfs',
+      memfsFilename : options.memfs || 'memfs.wasm',
     });
     this.ready = this.memfs.ready.then(
         () => { return this.untar(this.memfs, this.sysrootFilename); });
@@ -690,7 +690,7 @@ class API {
 
   async hostLogAsync(message, promise) {
     const start = +new Date();
-    this.hostLog(`${message}...`);
+    this.hostLog(`${message} ...`);
     const result = await promise;
     const end = +new Date();
     this.hostWrite(' done.');

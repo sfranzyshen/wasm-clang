@@ -23,7 +23,7 @@ let ctx2d;
 
 const apiOptions = {
   async readBuffer(filename) {
-    const response = await fetch(filename);
+    const response = await fetch(filename, { mode: 'no-cors' });
     return response.arrayBuffer();
   },
 
@@ -31,9 +31,9 @@ const apiOptions = {
     // TODO: make compileStreaming work. It needs the server to use the
     // application/wasm mimetype.
     if (false && WebAssembly.compileStreaming) {
-      return WebAssembly.compileStreaming(fetch(filename));
+      return WebAssembly.compileStreaming(fetch(filename, { mode: 'no-cors' }));
     } else {
-      const response = await fetch(filename);
+      const response = await fetch(filename, { mode: 'no-cors' });
       return WebAssembly.compile(await response.arrayBuffer());
     }
   },
