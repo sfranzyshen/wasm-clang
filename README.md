@@ -1,6 +1,8 @@
-# Running Clang/LLD in the browser producing a wasm file and uploading it to a esp device running a Wasm3 VM
+this is a modification of Ben Smith's [wasm-clang demonstration](https://github.com/binji/wasm-clang) to be used with wasm3 and the esp platform.
 
-# Directory structure
+## Running Clang/LLD in the browser producing a wasm file and uploading it to a esp device running a Wasm3 VM
+
+## Directory structure
 
 - `clang.wasm`: clang compiler, compiled to wasm w/ WASI
 - `lld.wasm`: lld linker, compiled to wasm w/ WASI
@@ -13,4 +15,4 @@
 - `worker.js`: Dedicated work used to compile
 - `sysroot.tar`: C++ standard headers and libraries
 
-this is a modification of Ben Smith's [wasm-clang demonstration](https://github.com/binji/wasm-clang) to be used with wasm3 and the esp platform.
+
