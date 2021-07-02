@@ -661,7 +661,7 @@ class API {
     this.clangFilename = options.clang || 'http://www.sfranzyshen.org/wasm-clang/clang.wasm';
     this.lldFilename = options.lld || 'http://www.sfranzyshen.org/wasm-clang/lld.wasm';
     this.sysrootFilename = options.sysroot || 'http://www.sfranzyshen.org/wasm-clang/sysroot.tar';
-    this.showTiming = options.showTiming || false;
+    this.showTiming = options.showTiming || true;
 
     this.clangCommonArgs = [
       '-disable-free',
