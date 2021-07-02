@@ -14,6 +14,6 @@ this is a modification of Ben Smith's [wasm-clang demonstration](https://github.
 - `service_worker.js`: Service worker used by the web page
 - `worker.js`: Dedicated work used to compile
 - `sysroot.tar`: C++ standard headers and libraries
-- `app_delay.cpp`: C++ standard example (strandtest)
-- `app_nodelay.cpp`: C++ standard example (strandtest_nodelay)
+- `app_delay.cpp`: C++ example (strandtest)
+- `app_nodelay.cpp`: C++ example (strandtest_nodelay)
 
