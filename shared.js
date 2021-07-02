@@ -745,7 +745,7 @@ class API {
         lld, 'wasm-ld', '--no-threads',
         '--export-dynamic',  // TODO required?
         '-z', `stack-size=${stackSize}`, `-L${libdir}`, obj, '-lc',
-        '-lc++', '-lc++abi', '-lcanvas', '-o', wasm)
+        '-lc++', '-lc++abi', '-lcanvas', '-larduino_api', '-o', wasm)
   }
 
   async run(module, ...args) {
