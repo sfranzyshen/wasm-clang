@@ -116,7 +116,6 @@ window.addEventListener('resize', event => layout.updateSize());
 
 let editor;
 const run = debounceLazy(editor => api.compileLinkRun(editor.getValue()), 100);
-const setKeyboard = name => editor.setKeyboardHandler(`ace/keyboard/${name}`);
 
 // Toolbar stuff
 $('#open').on('click', event => $('#openInput').click());
@@ -136,13 +135,10 @@ $('#openInput').on('change', async event => {
   editor.setValue(await readFile(file));
   editor.clearSelection();
 });
-$('#keyboard').on('input', event => setKeyboard(event.target.value));
-$('#showTiming').on('click', event => { api.setShowTiming(event.target.checked); });
 
 function EditorComponent(container, state) {
   editor = ace.edit(container.getElement()[0]);
   editor.session.setMode('ace/mode/c_cpp');
-  editor.setKeyboardHandler('ace/keyboard/vim');
   editor.setOption('fontSize',);
   editor.setValue(state.value || '');
   editor.clearSelection();
@@ -232,7 +228,7 @@ class Layout extends GoldenLayout {
       const state = JSON.stringify(this.toConfig());
       localStorage.setItem(options.configKey, state);
     }, 500));
-
+/*
     this.on('stackCreated', stack => {
       const fontSizeEl = document.createElement('div');
 
@@ -271,7 +267,7 @@ class Layout extends GoldenLayout {
         }
       });
     });
-
+*/
     this.registerComponent('editor', EditorComponent);
     this.registerComponent('terminal', TerminalComponent);
   }
@@ -364,12 +360,14 @@ function initLayout() {
         componentName: 'editor',
         componentState: {fontSize: 18, value: initialProgram},
 		height: 300,
+		isClosable: false,
       }, {
         type: 'column',
         content: [{
           type: 'component',
           componentName: 'terminal',
           componentState: {fontSize: 18},
+		  isClosable: false,
         }]
       }]
     }]
