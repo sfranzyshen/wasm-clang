@@ -730,12 +730,12 @@ class API {
     this.memfs.addFile(input, contents);
     const clang = await this.getModule(this.clangFilename);
     return await this.run(clang, 'clang', '-cc1', '-emit-obj',
-                          ...this.clangCommonArgs, '-O2', '-o', obj, '-x',
+                          ...this.clangCommonArgs, '-O3', '-o', obj, '-x',
                           'c++', input);
   }
 
   async link(obj, wasm) {
-    const stackSize = 1024 * 1024;
+    const stackSize = 1024 * 8;
 
     const libdir = 'lib/wasm32-wasi';
     const crt1 = `${libdir}/crt1.o`;
@@ -744,7 +744,7 @@ class API {
     return await this.run(
         lld, 'wasm-ld', '--no-threads',
         '--export-dynamic',  // TODO required?
-        '-z', `stack-size=${stackSize}`, `-L${libdir}`, crt1, obj, '-lc',
+        '-z', `stack-size=${stackSize}`, `-L${libdir}`, obj, '-lc',
         '-lc++', '-lc++abi', '-lcanvas', '-o', wasm)
   }
 
@@ -774,9 +774,8 @@ class API {
     await this.link(obj, wasm);
 
     const buffer = this.memfs.getFileContents(wasm);
-    const testMod = await this.hostLogAsync(`Compiling ${wasm}`,
-                                            WebAssembly.compile(buffer));
-    return await this.run(testMod, wasm);
+    //const testMod = await this.hostLogAsync(`Compiling ${wasm}`, WebAssembly.compile(buffer));
+    //return await this.run(testMod, wasm);
   }
 }
 

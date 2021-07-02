@@ -62,7 +62,7 @@ const onAnyMessage = async event => {
       currentApp.allowRequestAnimationFrame = false;
     }
     currentApp = await api.compileLinkRun(event.data.data);
-    console.log(`finished compileLinkRun. currentApp = ${currentApp}.`);
+    console.log(`finished compileLink. currentApp = ${currentApp}.`);
     break;
 
   case 'postCanvas':

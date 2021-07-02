@@ -16,7 +16,6 @@ self.addEventListener('install', event => {
         `${cdn}/ace/1.4.5/keybinding-emacs.js`,
         `${cdn}/ace/1.4.5/keybinding-sublime.js`,
         `${cdn}/ace/1.4.5/keybinding-vim.js`,
-        `${cdn}/ace/1.4.5/mode-assembly_x86.js`,
         `${cdn}/ace/1.4.5/mode-c_cpp.js`,
         `${cdn}/golden-layout/1.5.9/css/goldenlayout-base.css`,
         `${cdn}/golden-layout/1.5.9/css/goldenlayout-light-theme.css`,
